@@ -1,0 +1,111 @@
+// This code isn't yet fully tested
+// USEFULL MIXINS
+@function relative-size($size,$context)
+  @return #{$size/$context}em
+
+// This mixin is simple yet awesome to use, it'll give semantics to your sass code.
+// Use it like so:
+// ul.nav_menu
+//  padding: 20px
+//  +context(footer) // or +context("footer .menu_section") as a string when it's a class or id or a plural css selector.
+//    background: green
+= context($selector)
+  #{$selector} &
+    @content
+
+// Call this mixin to place a decorative content around an element, e.g a tape holding a post it.
+// When using the default configurations, you just need to set the dimensions, position and a background
+= decorative-content($position: after, $absolute: true)
+  @if $absolute
+    position: relative
+
+  &:#{$position}
+    content: ""
+    display: block
+    @if $absolute
+      position: absolute
+    @content
+
+= triangle($position: right, $size: 5px, $color: black)
+  width: 0
+  height: 0
+  line-height: 0
+  @if $position == top
+    border-bottom: $size solid $color
+    border-right: ($size*.75) solid transparent
+    border-left: ($size*.75) solid transparent
+  @if $position == bottom
+    border-top: $size solid $color
+    border-right: ($size*.75) solid transparent
+    border-left: ($size*.75) solid transparent
+  @if $position == left
+    border-right: $size solid $color
+    border-top: ($size*.75) solid transparent
+    border-bottom: ($size*.75) solid transparent
+  @if $position == right
+    border-left: $size solid $color
+    border-top: ($size*.75) solid transparent
+    border-bottom: ($size*.75) solid transparent
+  @if $position == top-left
+    border-top: $size solid $color
+    border-right: $size solid transparent
+  @if $position == top-right
+    border-top: $size solid $color
+    border-left: $size solid transparent
+  @if $position == bottom-right
+    border-bottom: $size solid $color
+    border-left: $size solid transparent
+  @if $position == bottom-left
+    border-bottom: $size solid $color
+    border-right: $size solid transparent
+
+// POSITIONING MIXINS
+= absolute-centering($width: 0, $direction: left, $offset: 0)
+  #{$direction}: 50%
+  margin-#{$direction}: - ($width / 2) - $offset
+
+= move($distance, $direction: bottom)
+  position: relative
+  #{$direction}: - $distance
+
+// FONT MIXINS
+=face($fontName, $fontFileName, $weight: normal, $style: normal)
+  @font-face
+    font-family: $fontName
+    src: url('#{$fontFileName}.eot')
+    src: url('#{$fontFileName}.eot?#iefix') format('embedded-opentype'), url('#{$fontFileName}.svg##{$fontName}') format('svg'), url('#{$fontFileName}.woff') format('woff'), url('#{$fontFileName}.ttf') format('truetype')
+    font-weight: $weight
+    font-style: $style
+
+= full-height-columns($selector: '.column', $method: "table", $max-size: 999em)
+  @if $method == "table"
+    display: table
+    & #{$selector}
+      display: table-cell  
+  @else
+    overflow: hidden
+    & #{$selector}
+      margin-bottom: - $max-size
+      padding-bottom: $max-size
+      float: left
+
+= stick-to($direction: bottom, $position: absolute, $size: false)
+  position: $position
+  @if $direction == bottom or $direction == top
+    @if $size
+      height: $size
+    left: 0
+    right: 0
+  @if $direction == left or $direction == right
+    @if $size
+      width: $size
+    top: 0
+    bottom: 0
+  #{$direction}: 0
+
+= expand-to-fit($padding: 0, $position: absolute)
+  position: $position
+  top: $padding
+  right: $padding
+  bottom: $padding
+  left: $padding

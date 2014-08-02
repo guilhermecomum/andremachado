@@ -1,0 +1,61 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js ie ie6 lt-ie9 lt-ie8 lt-ie7" {{site.language_attributes}}> <![endif]-->
+<!--[if IE 7]><html class="no-js ie ie7 lt-ie9 lt-ie8" {{site.language_attributes}}> <![endif]-->
+<!--[if IE 8]><html class="no-js ie ie8 lt-ie9" {{site.language_attributes}}> <![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" {{site.language_attributes}}> <!--<![endif]-->
+<html>
+  <head>
+    <meta charset="{{site.charset}}">
+    <title>{{wp_title}}</title>
+    <meta name="description" content="{{site.description}}">
+    <link rel="stylesheet" href="{{site.theme.link}}/style.css" type="text/css" media="screen">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="pingback" href="{{site.pingback_url}}">
+    <link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
+    {{function('wp_head')}}
+    <script src="{{site.theme.link}}/bower_components/modernizr/modernizr.js"></script>
+  </head>
+  <body>
+    <header id="header">
+      <div class="row">
+        <div class="large-12 columns">
+          <h1>André Machado{{wp_title}}</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="large-6 large-offset-6 columns">
+          <nav>
+            <ul class="menu inline-list">
+              {% for item in menu.items %}
+              <li id="menu-item-{{item.ID}}" class="{{item.classes | join(' ')}} menu-item menu-item-type-{{item.type}} menu-item-object-{{item.object}} menu-item-{{item.ID}}">
+                <a href="{{item.link}}">{{item.title}}</a>
+              </li>
+              {% endfor %}
+              <li>
+                <label for="left-label" class="left">busca</label>
+              </li>
+              <li>
+                <input type="text" id="left-label" class="busca" name="s" id="search" value="">
+              </li>
+            </ul>
+          </nav><!-- #access -->
+        </div>
+      </div>
+    </header>
+
+    {% block content %}
+
+    {% endblock %}
+
+    <footer id="footer">
+      {% include 'footer.twig' %}
+    </footer>
+    {{ function('wp_footer') }}
+
+    <script src="{{site.theme.link}}/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="{{site.theme.link}}/bower_components/foundation/js/foundation.min.js"></script>
+    <script src="{{site.theme.link}}/js/app.js"></script>
+    <script src="{{site.theme.link}}/js/site.js"></script>
+  </body>
+</html>

@@ -1,0 +1,99 @@
+{% extends "base.twig" %}
+
+{% block content %}
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=810756708951941&version=v2.0";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<div class="row">
+  <div class="large-9 columns">
+    <div class="slideshow">
+      {% for destaque in destaques %}
+      <a href="{{destaque.permalink}}">
+        <li>
+          <img src="{{destaque.thumbnail.src}}" alt="slide 1">
+          <div class="orbit-caption">
+            {{destaque.title}}
+          </div>
+        </li>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="large-3 columns">
+    <div class="box videos">
+      <a href="#" class="videos">
+        <p class="title">
+          Vídeos
+        </p>
+        <img class="icon" src="{{site.theme.link}}/images/videos.png">
+        <span class="more"></span>
+      </a>
+    </div>
+
+    <div class="box news">
+      <a href="#" class="news">
+        <p class="title">
+          Notícias
+        </p>
+        <span class="more"></span>
+      </a>
+    </div>
+
+  </div>
+
+</div>
+</div>
+
+<div class="misc">
+  <div class="row">
+    <div class="large-3 columns">
+      <div class="facebook">
+        <div class="fb-like-box"
+             data-href="https://www.facebook.com/FacebookDevelopers"
+             data-height="168" data-width="210" data-colorscheme="light"
+             data-show-faces="true" data-header="false" data-stream="false"
+             data-show-border="false">
+        </div>
+      </div>
+    </div>
+
+    <div class="large-3 columns">
+      <a href="#" class="box propostas">
+        <p class="title">
+          propostas
+        </p>
+        <img class="icon" src="{{site.theme.link}}/images/propostas.png">
+        <span class="more"></span>
+      </a>
+    </div>
+
+    <div class="large-3 columns">
+      <a href="#"ref="#" class="box fotos">
+        <p class="title">
+          fotos
+        </p>
+        <img class="icon" src="{{site.theme.link}}/images/foto.png">
+        <div class="more"></div>
+      </a>
+    </div>
+
+    <div class="large-3 columns">
+      <a href="#" class="box downloads">
+        <p class="title">
+          downloads
+        </p>
+        <img class="icon" src="{{site.theme.link}}/images/downloads.png">
+        <span class="more"></span>
+      </a>
+    </div>
+
+  </div>
+</div>
+{% endblock %}

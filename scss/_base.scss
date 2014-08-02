@@ -1,0 +1,42 @@
+@mixin vertical-align {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+body {
+  background: image-url("bg.png");
+  @include background-size(cover);
+  font-family: 'Oswald', sans-serif;
+}
+
+#header {
+  h1 {
+    background: image-url("header.png") no-repeat;
+    height: 315px;
+    text-indent: -9999px;
+    overflow: hidden;
+  }
+
+  .menu {
+    li {
+      text-align: right;
+
+      a, label {
+        color: $primary-color;
+        text-transform: uppercase;
+        font-size: 16px;
+        line-height: 35px;
+      }
+
+      .busca {
+        background: $secondary-color;
+        border: none;
+        margin-left: 15px;
+        width: 219px;
+      }
+    }
+  }
+}
