@@ -1,14 +1,24 @@
-#single {
-  padding-top: 40px;
+#page, #single {
   .article-content  {
+    background: $primary-color;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    min-height: 453px;
+    font-family: 'Oswald', sans-serif;
+
     p {
       font-weight: 300;
       font-size: rem-calc(18);
     }
 
     .article-h2 {
+      color: darken($primary-color, 30%);
+      font-size: 30px;
+      font-family: 'Oswald', sans-serif;
+      text-transform: uppercase;
       margin: 0;
     }
+
     .blog-author {
       font-size: rem-calc(18);
     }
@@ -30,7 +40,7 @@
       .comment-notes {
         font-size: rem-calc(12);
         font-weight: 300;
-        color: $primary-color;
+        color: white;
       }
       .form-allowed-tags {
         font-weight: 300;
@@ -41,32 +51,4 @@
       }
     }
   }
-
-  .widget {
-
-    h4{
-      font-size:rem-calc(21);
-      padding-top: 2em;
-    }
-    a{
-      color: lighten(#000, 20%);
-    }
-    ul {
-      list-style: none;
-    }
-    li {
-      padding-left: 0;
-
-    }
-    li:before {
-      content: '';
-      color: $primary-color;
-      font-family: "FontAwesome";
-      font-size:rem-calc(10);
-      display: inline-block;
-      margin-left: -1.6em;
-      width: 1.8em;
-    }
-
-   }
-  }
+}

@@ -1,19 +1,22 @@
 {% extends "base.twig" %}
 
 {% block content %}
-<div class="row">
-  <div class="large-12 columns">
+<div id="page">
+  <div class="row">
+    <article class="post-type-{{post.post_type}} large-9 columns" id="post-{{post.ID}}">
+      <section class="article-content">
+        <h2 class="article-h1">{{post.title}}</h2>
 
-  <article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
-    <section class="article-content">
-      <h1 class="article-h1">{{post.title}}</h1>
+        <div class="article-body">
+	  {{post.content}}
+        </div>
+      </section>
 
-      <div class="article-body">
-	{{post.content}}
-      </div>
-    </section>
+    </article>
 
-  </article>
+    <aside class="large-3 columns">
+      {% include "sidebar.twig" %}
+    </aside>
   </div>
 </div>
 

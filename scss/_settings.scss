@@ -164,7 +164,7 @@ $warning-color: #ffb74d;
 
 // We use these to style anchors
 // $anchor-text-decoration: none;
-// $anchor-font-color: $primary-color;
+$anchor-font-color: white;
 // $anchor-font-color-hover: scale-color($primary-color, $lightness: -14%);
 
 // We use these to style the <hr> element
@@ -724,7 +724,7 @@ $warning-color: #ffb74d;
 // $include-html-orbit-classes: $include-html-classes;
 
 // We use these to control the caption styles
-// $orbit-container-bg: none;
+// $orbit-container-bg: rgba(0,0,0, 0.9);
 // $orbit-caption-bg: rgba(51,51,51, 0.8);
 // $orbit-caption-font-color: #fff;
 // $orbit-caption-font-size: rem-calc(14);
@@ -733,7 +733,7 @@ $warning-color: #ffb74d;
 // $orbit-caption-height: auto;
 
 // We use these to control the left/right nav styles
-$orbit-nav-bg: transparent;
+$orbit-nav-bg: rgba(0,0,0, 0.6);
 $orbit-nav-bg-hover: none;
 $orbit-nav-arrow-color: $primary-color;
 $orbit-nav-arrow-color-hover: darken($primary-color, 10%);

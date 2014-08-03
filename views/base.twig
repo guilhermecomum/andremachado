@@ -20,7 +20,11 @@
     <header id="header">
       <div class="row">
         <div class="large-12 columns">
-          <h1>André Machado{{wp_title}}</h1>
+          <a href="{{site.url}}">
+            <h1>
+              André Machado{{wp_title}}
+            </h1>
+          </a>
         </div>
       </div>
       <div class="row">
@@ -57,5 +61,13 @@
     <script src="{{site.theme.link}}/bower_components/foundation/js/foundation.min.js"></script>
     <script src="{{site.theme.link}}/js/app.js"></script>
     <script src="{{site.theme.link}}/js/site.js"></script>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=810756708951941&version=v2.0";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
   </body>
 </html>

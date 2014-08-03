@@ -1,28 +1,23 @@
 {% extends "base.twig" %}
 
 {% block content %}
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=810756708951941&version=v2.0";
-    fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+
 
 <div class="row">
   <div class="large-9 columns">
     <div class="slideshow">
-      {% for destaque in destaques %}
-      <a href="{{destaque.permalink}}">
+      <ul class="example-orbit" data-orbit>
+        {% for destaque in destaques %}
         <li>
-          <img src="{{destaque.thumbnail.src}}" alt="slide 1">
-          <div class="orbit-caption">
-            {{destaque.title}}
-          </div>
+          <a href="{{destaque.permalink}}">
+            <img src="{{destaque.thumbnail.src|resize(720, 397)}}" alt="slide 1">
+            <div class="orbit-caption">
+              {{destaque.title}}
+            </div>
+          </a>
         </li>
-      </a>
-      {% endfor %}
+        {% endfor %}
+      </ul>
     </div>
   </div>
 
@@ -47,8 +42,6 @@
     </div>
 
   </div>
-
-</div>
 </div>
 
 <div class="misc">

@@ -1,4 +1,32 @@
 .footer {
   background: $primary-color;
   color: white;
+  height: 130px;
+
+  .menu {
+    height: 33px;
+    background: #000;
+    font-weight: 400;
+    line-height: 20px;
+    color: white;
+    margin: 20px 0 0 20px;
+    display: inline-block;
+
+    .plus {
+      background: #4e4e4e;
+      width: 33px;
+      height: 33px;
+      font-size: 24pt;
+      font-weight: 300;
+      text-align: center;
+      display: inline-block;
+    }
+
+    .more {
+      text-align: center;
+      width: 80px;
+      display: inline-block;
+      height: 33px;
+    }
+  }
 }
